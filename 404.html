@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Klinixy for Doctors</title>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // Redirects 404 requests to index.html with query/hash intact
+    var pathSegmentsToKeep = 1; // for /KlinixyDoctors-preview/
+    var l = window.location;
+    var pathname = l.pathname;
+    var search = l.search;
+    var hash = l.hash;
+
+    // Convert path to hash or query parameter
+    var cleanPath = pathname.split('/').slice(pathSegmentsToKeep + 1).join('/');
+    var target = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/') + '/';
+
+    if (cleanPath.indexOf('book') !== -1 || search.indexOf('clinic') !== -1 || hash.indexOf('book') !== -1) {
+      // Booking link target
+      target += search + (search ? '&' : '?') + 'book=1' + '#/book' + (search ? search : '');
+    } else {
+      target += (search ? search : '') + (hash ? hash : '');
+    }
+
+    window.location.replace(target);
+  </script>
+</head>
+<body>
+  <p>Redirecting to Klinixy...</p>
+</body>
+</html>
