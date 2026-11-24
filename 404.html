@@ -1,80 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/KlinixyDoctors-preview/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Klinixy for Doctors — Clinic management for doctors & staff">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Klinixy for Doctors">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
+  <meta charset="utf-8">
   <title>Klinixy for Doctors</title>
-  <link rel="manifest" href="manifest.json">
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // Redirects 404 requests to index.html with query/hash intact
+    var pathSegmentsToKeep = 1; // for /KlinixyDoctors-preview/
+    var l = window.location;
+    var pathname = l.pathname;
+    var search = l.search;
+    var hash = l.hash;
 
-  <!-- Instant branded loading screen: shows the Klinixy logo + spinner
-       within a second of opening the page, while the Flutter engine
-       downloads and starts. Removed automatically on first frame. -->
-  <style>
-    html, body { margin: 0; padding: 0; height: 100%; background: #F5F7FA; }
-    #loading {
-      position: fixed; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: #F5F7FA; z-index: 9999;
-      font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    // Convert path to hash or query parameter
+    var cleanPath = pathname.split('/').slice(pathSegmentsToKeep + 1).join('/');
+    var target = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/') + '/';
+
+    if (cleanPath.indexOf('book') !== -1 || search.indexOf('clinic') !== -1 || hash.indexOf('book') !== -1) {
+      // Booking link target
+      target += search + (search ? '&' : '?') + 'book=1' + '#/book' + (search ? search : '');
+    } else {
+      target += (search ? search : '') + (hash ? hash : '');
     }
-    #loading img { width: 96px; height: 96px; border-radius: 24px; box-shadow: 0 8px 24px rgba(0, 137, 123, 0.18); }
-    #loading .title { margin-top: 20px; font-size: 22px; font-weight: 700; color: #0F2A3C; letter-spacing: 0.2px; }
-    #loading .sub { margin-top: 6px; font-size: 14px; color: #5A6B7B; }
-    #loading .spinner {
-      margin-top: 28px; width: 36px; height: 36px; border-radius: 50%;
-      border: 3px solid rgba(0, 191, 166, 0.25); border-top-color: #00BFA6;
-      animation: klinixy-spin 0.9s linear infinite;
-    }
-    @keyframes klinixy-spin { to { transform: rotate(360deg); } }
-  </style>
+
+    window.location.replace(target);
+  </script>
 </head>
 <body>
-  <div id="loading">
-    <img src="icons/Icon-512.png" alt="Klinixy">
-    <div class="title">Klinixy for Doctors</div>
-    <div class="sub">Clinic management for doctors &amp; staff</div>
-    <div class="spinner"></div>
-  </div>
-  <script>
-    window.addEventListener('flutter-first-frame', function () {
-      var el = document.getElementById('loading');
-      if (el) el.remove();
-    });
-  </script>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
-
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
-  <script src="flutter_bootstrap.js" async></script>
+  <p>Redirecting to Klinixy...</p>
 </body>
 </html>
